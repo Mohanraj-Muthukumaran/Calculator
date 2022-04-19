@@ -1,24 +1,17 @@
 import React from 'react';
+import Exception from './Exception';
 
 class Display extends React.Component{
-    
-    multipleDotsWarning = () => {
+
+    warn = (type) => {
         return(
             <div className='display'>
-                <span className='warning'>MUTIPLE DOTS WARNING</span>
+                <span className='warning'>{type}</span>
             </div>
         )
     }
 
-    invalidOperaterUsageWarning = () => {
-        return(
-            <div className='display'>
-                <span className='warning'>INVALID OPERATOR USAGE</span>
-            </div>
-        )
-    }
-
-    regularDisplay = () => {
+    display = () => {
         return(
             <div className = 'display'>
                 { this.props.result ? <span id='subdisplay'> ({this.props.result}) </span> : '' }
@@ -29,13 +22,13 @@ class Display extends React.Component{
     
     render(){
         if(this.props.multipleDots){
-            return(this.multipleDotsWarning())
+            return(this.warn(Exception.MULTIPLE_DOTS_WARNING))
         }
         else if(this.props.invalidOperatorUsage){
-            return(this.invalidOperaterUsageWarning())
+            return(this.warn(Exception.INVALID_OPERATOR_USAGE))
         }
         else{
-            return(this.regularDisplay())
+            return(this.display())
         }
     }
 

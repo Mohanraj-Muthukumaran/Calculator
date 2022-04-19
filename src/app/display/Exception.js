@@ -1,0 +1,6 @@
+const Exception = {
+    MULTIPLE_DOTS_WARNING : 'MULTIPLE DOTS WARNING',
+    INVALID_OPERATOR_USAGE : 'INVALID OPERATOR USAGE'
+}
+
+export default Exception;

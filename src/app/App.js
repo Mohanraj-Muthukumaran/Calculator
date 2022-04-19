@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Display from './display/Display';
 
 function App() {
@@ -32,6 +32,11 @@ function App() {
         setInvalidOperatorUsage(true);
     }
 
+    const resetWarnings = () => {
+        resetMultipleDots();
+        resetInvalidOperatorUsage();
+    }
+
     const isAddingDotValid = () => {
         for(let i = calc.length; i >= 0; i--){
             if(calc.charAt(i) === '.'){
@@ -46,6 +51,7 @@ function App() {
 
         return true;
     }
+
 
     const updateCalc = (value) => {
         if(
@@ -62,8 +68,7 @@ function App() {
             return;
         }
 
-        resetMultipleDots();
-        resetInvalidOperatorUsage();
+        resetWarnings();
 
         setCalc(calc + value);
 
@@ -72,26 +77,27 @@ function App() {
         }
     }
 
+
     const calculate = () => {
         setCalc(eval(calc).toString());
     }
+
 
     const deleteLast = () => {
         if(calc === ''){
             return;
         }
 
-        resetMultipleDots();
-        resetInvalidOperatorUsage();
+        resetWarnings();
 
         setCalc(calc.slice(0, -1));
     }
 
+
     const resetCalc = () => {
-        resetMultipleDots();
-        resetInvalidOperatorUsage();
-        setCalc('')
-        setResult('')
+        resetWarnings();
+        setCalc('');
+        setResult('');
     }
 
     const generateButtons = (values) => {
@@ -121,7 +127,7 @@ function App() {
 
         return operators;
     }
-
+    
     return ( 
         <div className = "App">
             <div className = 'calculator'>   
@@ -140,7 +146,6 @@ function App() {
                     
                     <button onClick={() => calculate()}>=</button>
                 </div>
-
             </div> 
         </div>
     );

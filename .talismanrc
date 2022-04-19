@@ -2,3 +2,8 @@ fileignoreconfig:
 - filename: package-lock.json
   checksum: d412ab8431b6d377f5193f3641560a15f5b0dcebdeaf004883efe6a993a1ef9a
 version: ""
+
+fileignoreconfig:
+- filename: src/app/App.js
+  checksum: 8140f49e7258f671c757fa5c772cd33524ade0b609ca22394f75389751421630
+version: ""
