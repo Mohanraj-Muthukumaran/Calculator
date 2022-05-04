@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import Display from './display/Display';
+import { useState } from 'react';
+import Display from './components/Display';
 
 function App() {
     
@@ -107,8 +107,10 @@ function App() {
             buttons.push(
                 <button 
                 onClick={() => updateCalc(values[i].toString())} 
-                key={values[i]}>
-                    {values[i]}
+                key={values[i]}
+                id={values[i]}
+                >
+                {values[i]}
                 </button>
             )
         }
@@ -137,14 +139,14 @@ function App() {
                 <div className = 'operators'>
                     { operators() }
                 
-                    <button onClick={() => deleteLast()}>DEL</button>
-                    <button onClick={() => resetCalc()}>AC</button>
+                    <button onClick={() => deleteLast()} id="DEL">DEL</button>
+                    <button onClick={() => resetCalc()} id="AC">AC</button>
                 </div>
 
                 <div className='digits'>
                     { digits() }
                     
-                    <button onClick={() => calculate()}>=</button>
+                    <button onClick={() => calculate()} id="=">=</button>
                 </div>
             </div> 
         </div>

@@ -14,7 +14,7 @@ class Display extends React.Component{
     display = () => {
         return(
             <div className = 'display'>
-                { this.props.result ? <span id='subdisplay'> ({this.props.result}) </span> : '' }
+                { this.props.result ? <span id='subdisplay'>({this.props.result})</span> : '' }
                 { this.props.calc || "0"} 
             </div>
         )

@@ -1,9 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+/**
+ * Structure of the test:
+ *     * Render a component we want to test
+ *     * Find elements we want to interact with 
+ *     * Interact with those elements
+ *     * Assert that the expected behavior is happening
+ */
 
